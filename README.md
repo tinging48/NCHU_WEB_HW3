@@ -16,7 +16,7 @@
 ## 繳交作業
 
 * 麻煩各位同學做完作業後，將專案變成GitHub Pages（URL）後，私訊給助教
-* 私訊內容如下：
+* 私訊內容如下：<br>
 學號：7105029033 <br>
 姓名：王瑋祥 <br>
 作業網址：https://xiang36.github.io/NCHU_WEB_HW3/
