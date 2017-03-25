@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<title>表單</title>
+	<style type="text/css">
+		table,th,td{
+			margin-left:50px;
+			margin-bottom:30px;
+			border-style:ridge;
+			border-color:rgb(300, 200, 500);
+			font-size: 130%;
+			font-style:normal;
+			font-family:cursive;
+			padding-top:10px;
+			padding-left:5px;
+			padding-right:5px;
+			padding-bottom:5px;
+		}
+		form{
+			background-color:rgb(250, 230, 280);
+			margin-left:50px;
+			margin-right:500px;
+			margin-bottom:50px;
+			padding-top:20px;
+			padding-left:50px;
+			padding-right:5%;
+			padding-bottom:50px;
+		}
+
+	</style>
+	</head>
+
+	<body>
+	<h1>履歷表</h1>
+
+	<form name="form1">
+	姓名：<br>
+	<input type="text" name="username" value="王竹妙"/><br><br>
+	生日：<br>
+	<input type="text" name="birthday" value="1997/5/19"/><br><br>
+	性別：<br>
+	<input type="radio" name="sex" value="男">男<br>
+	<input type="radio" name="sex" value="女" checked>女<br><br>
+	興趣：<br>
+	<input type="checkbox" name="hobby" value="游泳/" checked>游泳
+	<input type="checkbox" name="hobby" value="看書/">看書
+	<input type="checkbox" name="hobby" value="看電影/">看電影
+	<input type="checkbox" name="hobby" value="其他">其他<br><br>
+	自傳：<br>
+	<textarea rows=10 cols=50 name="note"></textarea><br><br>
+	<input type="button" value="送出" onclick="postData()"/>
+	</form>
+	
+    <div id="output"></div>
+
+	<script>
+      function postData(){
+        var username = document.form1.username.value;
+		var birthday = document.form1.birthday.value;
+		var sex = document.form1.sex.value;
+		var hobby = document.form1.hobby[0].value;
+		var hobby1 = document.form1.hobby[1].value;
+		var hobby2 = document.form1.hobby[2].value;
+		var hobby3 = document.form1.hobby[3].value;
+		var note = document.form1.note.value;
+
+		
+		
+		if(Boolean(document.form1.hobby[0].checked==true)){var a= hobby}
+        else{var a=""}
+        if(Boolean(document.form1.hobby[1].checked==true)){var b= hobby1}
+        else{var b=""}
+        if(Boolean(document.form1.hobby[2].checked==true)){var c= hobby2}
+        else{var c=""}
+		if(Boolean(document.form1.hobby[3].checked==true)){var d= hobby3}
+        else{var d=""}
+
+				
+		var objNode = document.getElementById("output");
+		var tableNode = document.createElement("table");
+		var tr1 = document.createElement("tr");
+		var th1 = document.createElement("th");
+		var th2 = document.createElement("th");
+		var th3 = document.createElement("th");
+		var th4 = document.createElement("th");
+		var th5 = document.createElement("th");
+		
+		var tr2 = document.createElement("tr");
+		var td1 = document.createElement("td");
+		var td2 = document.createElement("td");
+		var td3 = document.createElement("td");
+		var td4 = document.createElement("td");
+		var td5 = document.createElement("td");
+
+		
+		var text1 = document.createTextNode("姓名");
+		var text2 = document.createTextNode("生日");
+		var text3 = document.createTextNode("性別");
+		var text4 = document.createTextNode("興趣");
+		var text5 = document.createTextNode("自傳");
+		var text6 = document.createTextNode(username);
+		var text7 = document.createTextNode(birthday);
+		var text8 = document.createTextNode(sex);
+		var text9 = document.createTextNode(a+b+c+d);
+		var text10 = document.createTextNode(note);
+		
+		objNode.appendChild(tableNode);
+		tableNode.appendChild(tr1);
+		tr1.appendChild(th1);
+		tr1.appendChild(th2);
+		tr1.appendChild(th3);
+		tr1.appendChild(th4);
+		tr1.appendChild(th5);
+		th1.appendChild(text1);
+		th2.appendChild(text2);
+		th3.appendChild(text3);
+		th4.appendChild(text4);
+		th5.appendChild(text5);
+		
+		tableNode.appendChild(tr2);
+		tr2.appendChild(td1);
+		tr2.appendChild(td2);
+		tr2.appendChild(td3);
+		tr2.appendChild(td4);
+		tr2.appendChild(td5);
+		td1.appendChild(text6);
+		td2.appendChild(text7);
+		td3.appendChild(text8);
+		td4.appendChild(text9);
+		td5.appendChild(text10);
+		
+
+
+		
+	  }
+
+		
+		
+		
+		
+			//堆疊方式
+			//output.innerHTML = "<table><tr> <th>姓名</th> <th>生日</th> <th>性別</th> <th>興趣</th> <th>自傳</th> </tr>"
+			//		+"<tr><td>"+username+"</td> <td>"+birthday+"</td> <td>"+sex+"</td> <td>"+(a+b+c+d)+"</td> <td>"+note+"</td> </tr> </table>";}
+
+		
+		
+
+		function setBlue() { var b = document.getElementById("output");
+			b.style.color= "blue"; } 
+	    function setGreen() { var g = document.getElementById("output");
+			g.style.color= "green"; } 
+		function setLarge() { var l = document.getElementById("output"); 
+			l.style.fontSize = "18pt"; }
+		function setSmall() { var s = document.getElementById("output");
+			s.style.fontSize = "10pt"; } 
+		function hideElement() { var h = document.getElementById("output"); 
+			if (h.style.display == "none") h.style.display = ""; 
+			else h.style.display = "none"; }
+	</script>
+	
+<form> 
+	<input type="button" onclick="setBlue()" value="藍色">
+	<input type="button" onclick="setGreen()" value="綠色">	
+	<input type="button" onclick="setLarge()" value="放大"> 
+	<input type="button" onclick="setSmall()" value="縮小">
+	<input type="button" onclick="hideElement()" value="隱藏"> 
+</form>
+	
+	
+	
+	
+	</body>
+
+</html>
